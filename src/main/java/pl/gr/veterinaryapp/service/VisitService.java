@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface VisitService {
 
-    void deleteVisit(long id);
+    void deleteVisit(Long id);
 
     List<Visit> getAllVisits(User user);
 
@@ -20,7 +20,7 @@ public interface VisitService {
 
     Visit finalizeVisit(VisitEditDto visitEditDto);
 
-    Visit getVisitById(User user, long id);
+    Visit getVisitById(User user, Long id);
 
     List<AvailableVisitDto> getAvailableVisits(
             OffsetDateTime startDateTime,

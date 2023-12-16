@@ -25,12 +25,12 @@ public class ClientRestController {
 
     @GetMapping("/{id}")
     public ClientResponseDto getClient(@PathVariable long id) {
-        return mapper.map(clientService.getClientById(id));
+        return clientService.getClientById(id);
     }
 
     @PostMapping
     public ClientResponseDto createClient(@RequestBody ClientRequestDto clientRequestDTO) {
-        return mapper.map(clientService.createClient(clientRequestDTO));
+        return clientService.createClient(clientRequestDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -40,6 +40,6 @@ public class ClientRestController {
 
     @GetMapping
     public List<ClientResponseDto> getAllClients() {
-        return mapper.mapAsList(clientService.getAllClients());
+        return clientService.getAllClients();
     }
 }

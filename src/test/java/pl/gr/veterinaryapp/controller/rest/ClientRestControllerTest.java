@@ -71,7 +71,7 @@ class ClientRestControllerTest {
         clientResponse.setSurname(CLIENT_SURNAME);
 
         when(clientService.createClient(any(ClientRequestDto.class))).thenReturn(client);
-        when(clientMapper.map(any(Client.class))).thenReturn(clientResponse);
+        when(clientMapper.toEntity(any(Client.class))).thenReturn(clientResponse);
 
         mockMvc.perform(post("/api/clients")
                 .with(csrf())
@@ -82,7 +82,7 @@ class ClientRestControllerTest {
                 .andExpect(jsonPath("$.surname").value(CLIENT_SURNAME));
 
         verify(clientService).createClient(eq(clientRequest));
-        verify(clientMapper).map(eq(client));
+        verify(clientMapper).toEntity(eq(client));
     }
 
     @Test
@@ -95,7 +95,7 @@ class ClientRestControllerTest {
         clientResponse.setSurname(CLIENT_SURNAME);
 
         when(clientService.getClientById(anyLong())).thenReturn(client);
-        when(clientMapper.map(any(Client.class))).thenReturn(clientResponse);
+        when(clientMapper.toEntity(any(Client.class))).thenReturn(clientResponse);
 
         mockMvc.perform(get("/api/clients/{id}", ID)
                 .accept(MediaType.APPLICATION_JSON))
@@ -104,7 +104,7 @@ class ClientRestControllerTest {
                 .andExpect(jsonPath("$.surname").value(CLIENT_SURNAME));
 
         verify(clientService).getClientById(ID);
-        verify(clientMapper).map(eq(client));
+        verify(clientMapper).toEntity(eq(client));
     }
 
     @Test

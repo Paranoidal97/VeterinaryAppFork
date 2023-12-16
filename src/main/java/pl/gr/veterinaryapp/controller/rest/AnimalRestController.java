@@ -22,22 +22,22 @@ public class AnimalRestController {
     private final AnimalService animalService;
 
     @GetMapping("/{id}")
-    public Animal getAnimal(@PathVariable long id) {
+    public AnimalRequestDto getAnimal(@PathVariable Long id) {
         return animalService.getAnimalById(id);
     }
 
     @PostMapping
-    public Animal createAnimal(@RequestBody AnimalRequestDto animalRequestDTO) {
+    public AnimalRequestDto createAnimal(@RequestBody AnimalRequestDto animalRequestDTO) {
         return animalService.createAnimal(animalRequestDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
+    public void deleteAnimal(@PathVariable Long id) {
         animalService.deleteAnimal(id);
     }
 
     @GetMapping
-    public List<Animal> getAllAnimals() {
+    public List<AnimalRequestDto> getAllAnimals() {
         return animalService.getAllAnimals();
     }
 }

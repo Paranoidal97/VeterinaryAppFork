@@ -37,7 +37,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         excludeAutoConfiguration = {WebSecurityConfig.class})
 class AnimalRestControllerTest {
 
-    private static final long ID = 1L;
+    private static final Long ID = 1L;
     private static final String SPECIES = "CAT";
 
     @MockBean
@@ -58,7 +58,7 @@ class AnimalRestControllerTest {
         Animal animal = new Animal();
         animal.setSpecies(animalRequest.getSpecies());
 
-        when(animalService.createAnimal(any(AnimalRequestDto.class))).thenReturn(animal);
+        when(animalService.createAnimal(any(AnimalRequestDto.class))).thenReturn(animalRequest);
 
         mockMvc.perform(post("/api/animals")
                 .with(csrf())
@@ -86,7 +86,7 @@ class AnimalRestControllerTest {
                 .andExpect(jsonPath("$.id").value(ID))
                 .andExpect(jsonPath("$.species").value(SPECIES));
 
-        verify(animalService).getAnimalById(1);
+        verify(animalService).getAnimalById(1L);
     }
 
     @Test
