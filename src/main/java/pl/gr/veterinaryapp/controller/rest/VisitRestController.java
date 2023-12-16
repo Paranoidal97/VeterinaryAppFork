@@ -41,7 +41,7 @@ public class VisitRestController {
     private final VisitMapper mapper;
 
     @DeleteMapping(path = "/{id}", produces = MediaTypes.HAL_JSON_VALUE)
-    public void delete(@PathVariable long id) {
+    public void delete(@PathVariable Long id) {
         visitService.deleteVisit(id);
     }
 

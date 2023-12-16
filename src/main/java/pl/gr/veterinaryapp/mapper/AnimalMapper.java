@@ -8,5 +8,6 @@ import pl.gr.veterinaryapp.model.entity.Animal;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AnimalMapper {
 
-    Animal map(AnimalRequestDto animalRequestDto);
+    Animal toEntity(AnimalRequestDto animalRequestDto);
+    AnimalRequestDto toDto(Animal animal);
 }

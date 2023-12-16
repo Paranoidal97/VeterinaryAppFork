@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface VetService {
 
-    Vet getVetById(long id);
+    Vet getVetById(Long id);
 
     List<Vet> getAllVets();
 
     Vet createVet(VetRequestDto vetRequestDTO);
 
-    void deleteVet(long id);
+    void deleteVet(Long id);
 }

@@ -9,9 +9,9 @@ public interface UserService {
 
     List<VetAppUser> getAllUsers();
 
-    VetAppUser getUser(long id);
+    VetAppUser getUser(Long id);
 
     VetAppUser createUser(UserDto user);
 
-    void deleteUser(long id);
+    void deleteUser(Long id);
 }
